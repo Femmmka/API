@@ -5,7 +5,6 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:API.Pages"
       mc:Ignorable="d" 
-      mc:Ignorable="d" 
       d:DesignHeight="410" 
       d:DesignWidth="800"
       Title="Groups">
@@ -14,7 +13,7 @@
         <Grid Height="50" VerticalAlignment="Top" Background="#FF0074FF">
             <Label Content="Группы:" Foreground="White" Margin="5" FontSize="20" FontWeight="Bold" />
         </Grid>
-        <ListView Margin="10,87,10,10" x:Name="listView" PreviewMouseLeftButtonUp="GroupItemClick">
+        <ListView Margin="10,87,10,10" x:Name="listView">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="№ п/п" Width="50" DisplayMemberBinding="{Binding id}" />

@@ -27,9 +27,17 @@ namespace API.Pages
 
             LoadData();
         }
-        private void FindGroups()
+        private void FindGroups(object sender, TextChangedEventArgs e)
         {
-            
+            string searchText = find.Text.ToLower();
+            listView.Items.Clear();
+            foreach (GroupsList group in init.groupsLists)
+            {
+                if (group.name.ToLower().Contains(searchText))
+                {
+                    listView.Items.Add(group);
+                }
+            }
         }
         public void LoadData()
         {
