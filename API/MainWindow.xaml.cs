@@ -1,4 +1,5 @@
-﻿using System;
+﻿using API.Pages;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -31,10 +32,22 @@ namespace API
             }
         }
         public List<GroupsList> groupsLists = new List<GroupsList>();
+
+        public static MainWindow init;
         public MainWindow()
         {
             InitializeComponent();
+
+            init = this;
+            LoadData();
+            OpenPage(new Groups());
         }
+
+        public void OpenPage(Page _page)
+        {
+            frame.Navigate(_page);
+        }
+
         public string HttpQuery(string url)
         {
             HttpWebRequest myHttpWebRequest = (HttpWebRequest)WebRequest.Create(url);
