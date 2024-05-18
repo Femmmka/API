@@ -20,9 +20,19 @@ namespace API
     /// </summary>
     public partial class MainWindow : Window
     {
+        public class GroupsList
+        {
+            public int id { get; set; }
+            public string name
+            {
+                get; set;
+            }
+        }
+        public List<GroupsList> groupsLists = new List<GroupsList>();
         public MainWindow()
         {
             InitializeComponent();
         }
+
     }
 }

@@ -24,5 +24,9 @@ namespace API.Pages
         {
             InitializeComponent();
         }
+        private void FindGroups()
+        {
+            
+        }
     }
 }
