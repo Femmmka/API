@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -32,6 +34,13 @@ namespace API
         public MainWindow()
         {
             InitializeComponent();
+        }
+        public string HttpQuery(string url)
+        {
+            HttpWebRequest myHttpWebRequest = (HttpWebRequest)WebRequest.Create(url);
+            HttpWebResponse myHttpWebResponse = (HttpWebResponse)myHttpWebRequest.GetResponse();
+            StreamReader strm = new StreamReader(myHttpWebResponse.GetResponseStream());
+            return strm.ReadToEnd();
         }
 
     }
