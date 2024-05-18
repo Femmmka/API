@@ -42,6 +42,23 @@ namespace API
             StreamReader strm = new StreamReader(myHttpWebResponse.GetResponseStream());
             return strm.ReadToEnd();
         }
+        public void LoadData()
+        {
+            groupsLists.Clear();
 
+            string data = HttpQuery("http://localhost/api/index.php?groups");
+            string[] dataGroups = data.Split(';');
+
+            for (int i = 0; i < dataGroups.Length; i++)
+            {
+                GroupsList newGroupsList = new GroupsList();
+                string[] idNameGroups = dataGroups[i].Split(':');
+
+                newGroupsList.id = Convert.ToInt32(idNameGroups[0]);
+                newGroupsList.name = idNameGroups[1];
+
+                groupsLists.Add(newGroupsList);
+            }
+        }
     }
 }
